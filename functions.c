@@ -23,8 +23,9 @@ void reverse(int array[], int size) {
 int countChar(char ch, const char str[]){
     int count = 0;
     for (int i = 0; str[i] != '\0'; i++){
-        if (str[i] == ch)
+        if (str[i] == ch){
           count++;
+        }
     }
     return count;
       
