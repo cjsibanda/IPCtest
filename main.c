@@ -5,6 +5,8 @@ int main() {
     int array1[] = {1, 2, 3, 1};
     printf("Sum: %d\n", sum(array1, 4));
 
+    //testing
+
     int array2[] = {2, 1, 3, 4, 7, 6};
     reverse(array2, 6);
     printf("Reversed: ");
