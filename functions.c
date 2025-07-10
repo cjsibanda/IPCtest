@@ -41,6 +41,19 @@ int countAllCase(char ch, const char str[]){
     return count;
 }
 
+//Try this:
+/*
+int countAllCase(char ch, char str[]){
+    int count = 0;
+    for (int i = 0; str[i] != '\0'; i++){
+        if((str[i] >= 'a' && str[i] <= 'z') == (ch >= 'a' && ch <= 'z')){
+            count++;
+        }
+    }
+    return count;
+}
+*/
+
 
 //Extra 1
 int findSmallest(int array[], int size) {
