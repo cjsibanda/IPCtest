@@ -34,25 +34,27 @@ int countChar(char ch, const char str[]){
 //function 4
 int countAllCase(char ch, const char str[]){
     int count = 0;
-    for (int i = 0; str[i] != '\0'; i++){
-        if (tolower(str[i]) == tolower(ch))
-          count++;
-    }
-    return count;
-}
 
-//Try this:
-/*
-int countAllCase(char ch, char str[]){
-    int count = 0;
-    for (int i = 0; str[i] != '\0'; i++){
-        if((str[i] >= 'a' && str[i] <= 'z') == (ch >= 'a' && ch <= 'z')){
+    //Convert ch to lowercase if it's uppercase
+    if(ch >= 'A' && ch <= 'Z'){
+        ch = ch + 32;
+    } 
+
+    for (int i = 0; str[] != '\0'; i++){
+        char current = str[i];
+
+        //Manually convert current character to lowercase if it's uppercase
+        if (current >= 'A' && current <= 'Z') {
+            current = current + 32;
+        }
+
+        if (current == ch){
             count++;
         }
     }
     return count;
 }
-*/
+
 
 
 //Extra 1
