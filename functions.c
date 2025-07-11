@@ -85,7 +85,7 @@ int linearSearch(int key, const int array[], int size){
 
 }
 
-//Extra 4
+//Extra 4 (using built in functions)
 void capitalize(char str[]) {
     int newWord = 1;
     for (int i = 0; str[i] != '\0'; i++) {
