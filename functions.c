@@ -103,29 +103,11 @@ void capitalize(char str[]) {
 // Extra 5
 void removeTrailingWhitespace(char str[]) {
     int len = strlen(str);
-    while (len > 0 && isspace(str[len - 1])) {
-        len--;
+    
+    // Loop backwards from the end of the string until we hit a non-whitespace character
+    while (len > 0 && str[len - 1] == ' ') {
+        str[len - 1] = '\0';  // Set the last character to null terminator
+        len--;  // Move one character backwards
     }
-    str[len] = '\0';
 }
 
-//Extra 5 without built in functions
-/*
-void removeTrailingWhitespace(char str[]) {
-    int len = 0;
-
-    // Manually find the length of the string
-    while (str[len] != '\0') {
-        len++;
-    }
-
-    // Move backwards to find the last non-whitespace character
-    int i = len - 1;
-    while (i >= 0 && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\r')) {
-        i--;
-    }
-
-    // Null-terminate the string after the last non-whitespace character
-    str[i + 1] = '\0';
-}
-*/
