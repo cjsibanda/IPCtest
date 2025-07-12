@@ -108,3 +108,24 @@ void removeTrailingWhitespace(char str[]) {
     }
     str[len] = '\0';
 }
+
+//Extra 5 without built in functions
+/*
+void removeTrailingWhitespace(char str[]) {
+    int len = 0;
+
+    // Manually find the length of the string
+    while (str[len] != '\0') {
+        len++;
+    }
+
+    // Move backwards to find the last non-whitespace character
+    int i = len - 1;
+    while (i >= 0 && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\r')) {
+        i--;
+    }
+
+    // Null-terminate the string after the last non-whitespace character
+    str[i + 1] = '\0';
+}
+*/
