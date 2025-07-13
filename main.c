@@ -50,5 +50,11 @@ int main() {
         printf("Date not found\n");
     }
 
+    //Call numInYear function
+    int year = 2023;
+    int count = numInYear(year, dates, size);
+
+    printf("Number of dates in year %d: %d\n", year, count);
+
     return 0;
 }
