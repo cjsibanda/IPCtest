@@ -111,13 +111,14 @@ void removeTrailingWhitespace(char str[]) {
     }
 }
 
-// L6 1
+// L6 Struct
 struct Date {
   int day;
   int month;
   int year;
 };
 
+//L6 1
 int findDate(int day, int month, int year, struct Date dates[], int size) {
     for (int i = 0; i < size; i++) {
         if (date[i].day == day && dates[i].month == month && dates[i].year == year) {
@@ -125,6 +126,18 @@ int findDate(int day, int month, int year, struct Date dates[], int size) {
         }
     }
     return -1;
+}
+
+//L6 2
+int numInYear(int year, struct Date dates[], int size) {
+    int count = 0; 
+
+    for (int i = 0; i < size; i++) {
+        if (dates[i].year == year) {
+            count++;
+        }
+    }
+    return count;
 }
 
 
