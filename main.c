@@ -30,5 +30,25 @@ int main() {
     removeTrailingWhitespace(wsStr);
     printf("Trimmed: \"%s\"\n", wsStr);
 
+    //test findDate
+    //Example array of Date structs
+    struct Date dates[] = {
+     {25, 12, 2023},
+     {1, 1, 2022},
+     {15, 8, 2021},
+     {4, 7, 2024}
+    };
+
+    int size = sizeof(date) / sizeof(dates[0]);
+
+    //call findDate function
+    int index = findDate(15, 8, 2021, dates, size);
+
+    if (index != -1) {
+        printf("Date found at index: %d\n", index);
+    } else {
+        printf("Date not found\n");
+    }
+
     return 0;
 }
