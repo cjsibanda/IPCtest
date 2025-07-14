@@ -140,5 +140,29 @@ int numInYear(int year, struct Date dates[], int size) {
     return count;
 }
 
+//L6 3
+int cmpDates(int dayIndex1, int dayIndex2, struct Date dates[]) {
+  //Compare years 1st
+  if (dates[dayIndex1].year < dates[dayIndex2].year) {
+      return 1;
+} else if (dates[dateIndex1].year > dates[dayIndex2].year) {
+      return -1;
+  }
 
+//if years are the same, compare months
+if (dates[dayIndex1].month < dates[dayIndex2].month) {
+    return 1;
+} else if (dates[dayIndex1]/month > dates[dayIndex2].month) {
+    return -1;
+}
+
+//IF months are the same, compare days
+if (dates[dayIndex1].day < dates[dayIndex2].day) {
+    return 1;
+} else if (dates[dayIndex1].day > dates[dayIndex2].day) {
+    return -1;
+}
+
+// If all components (day, month, year) are the same 
+return 0;
 
