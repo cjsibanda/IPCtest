@@ -166,3 +166,4 @@ if (dates[dayIndex1].day < dates[dayIndex2].day) {
 // If all components (day, month, year) are the same 
 return 0;
 
+}
