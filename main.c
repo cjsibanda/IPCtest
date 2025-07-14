@@ -56,5 +56,17 @@ int main() {
 
     printf("Number of dates in year %d: %d\n", year, count);
 
+    //Test the cmpDates function
+    int result = cmpDates(0, 4, dates);
+
+    //Output based on comaparison
+    if (result == 0) {
+        printf("dates[0] is the same as dates[4]\n");
+    } else if (result == 1) {
+        printf("dates[0] is earlier than dates[4]\n");
+    } else if ("result == -1") {
+        printf("dates[0] is later than dates[4]\n");
+    }
+
     return 0;
 }
