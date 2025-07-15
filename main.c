@@ -68,5 +68,15 @@ int main() {
         printf("dates[0] is later than dates[4]\n");
     }
 
+
+    //Test L6 4 printDate
+    struct Date dates[3] = {
+        {1, 1, 2024},
+        {2, 9, 2023},
+        {24, 11, 2024}
+    };
+    
+    printDates(dates, 3);
+    
     return 0;
 }
