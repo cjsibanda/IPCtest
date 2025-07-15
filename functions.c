@@ -167,3 +167,24 @@ if (dates[dayIndex1].day < dates[dayIndex2].day) {
 return 0;
 
 }
+
+//L 4 (no built-in functions)
+//Function to print the dates in "MonthName Day, Year" format
+void printDates(struct Date dates[], int size) {
+    const char *months[12] = {
+        "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+    };
+    
+    int i = 0;
+    
+    //Single entry point
+    while (i < size) {
+        int m = dates[i].month;
+        if (m >= 1 && m <= 12) {
+            printf("%s %d, %d\n", months[m-1], dates[i].day, dates[i].year);
+        } else {
+            printf("Invalid month %d for date #%d\n", m, i + 1);
+        }
+        i++;
+    }
+}
