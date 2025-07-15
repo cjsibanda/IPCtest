@@ -140,7 +140,7 @@ int numInYear(int year, struct Date dates[], int size) {
     return count;
 }
 
-//L6 3
+//L6 3 (check this)
 int cmpDates(int dayIndex1, int dayIndex2, struct Date dates[]) {
   //Compare years 1st
   if (dates[dayIndex1].year < dates[dayIndex2].year) {
