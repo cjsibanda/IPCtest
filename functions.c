@@ -142,31 +142,25 @@ int numInYear(int year, struct Date dates[], int size) {
 
 //L6 3 (check this)
 int cmpDates(int dayIndex1, int dayIndex2, struct Date dates[]) {
-  //Compare years 1st
-  if (dates[dayIndex1].year < dates[dayIndex2].year) {
-      return 1;
-} else if (dates[dateIndex1].year > dates[dayIndex2].year) {
-      return -1;
-  }
+    int result = 0;
 
-//if years are the same, compare months
-if (dates[dayIndex1].month < dates[dayIndex2].month) {
-    return 1;
-} else if (dates[dayIndex1]/month > dates[dayIndex2].month) {
-    return -1;
+    if (dates[dayIndex1].year < dates[dayIndex2].year) {
+        result = 1;
+    } else if (dates[dayIndex1].year > dates[dayIndex2].year) {
+        result = -1;
+    } else if (dates[dayIndex1].month < dates[dayIndex2].month) {
+        result = 1;
+    } else if (dates[dayIndex1].month > dates[dayIndex2].month) {
+        result = -1;
+    } else if (dates[dayIndex1].day < dates[dayIndex2].day) {
+        result = 1;
+    } else if (dates[dayIndex1].day > dates[dayIndex2].day) {
+        result = -1;
+    }
+
+    return result;
 }
 
-//IF months are the same, compare days
-if (dates[dayIndex1].day < dates[dayIndex2].day) {
-    return 1;
-} else if (dates[dayIndex1].day > dates[dayIndex2].day) {
-    return -1;
-}
-
-// If all components (day, month, year) are the same 
-return 0;
-
-}
 
 //L 4 (no built-in functions)
 //Function to print the dates in "MonthName Day, Year" format
