@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <string.h>
 
-//Fucntion 1
+L5 1
 int sum(const int array[], int size){
     int total = 0;
     for (int i = 0; i < size; i++)
@@ -10,7 +10,7 @@ int sum(const int array[], int size){
     return total;
 }
 
-//Fucntion 2
+//L5 2
 void reverse(int array[], int size) {
     for (int i = 0; i < size / 2; i++) {
         int temp = array[i];
