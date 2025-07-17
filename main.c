@@ -39,7 +39,7 @@ int main() {
      {4, 7, 2024}
     };
 
-    int size = sizeof(date) / sizeof(dates[0]);
+    int size = sizeof(dates) / sizeof(dates[0]);
 
     //call findDate function
     int index = findDate(15, 8, 2021, dates, size);
