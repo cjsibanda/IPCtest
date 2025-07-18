@@ -111,7 +111,7 @@ void removeTrailingWhitespace(char str[]) {
     }
 }
 
-// L6 Struct
+// L6 Struct -> use for 1,2,3 & 4
 struct Date {
   int day;
   int month;
