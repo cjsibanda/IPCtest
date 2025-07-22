@@ -77,6 +77,14 @@ int main() {
     };
     
     printDates(dates, 3);
+
+    //Test L7 3 - printDateTime
+    struct DateTime example = {8, 11, 2024, 8, 14};
+    printDateTime(&example);
+
+    struct DateTime edge = {1, 4, 2024, 0, 55};
+    printDateTime(&edge);
+    
     
     return 0;
 }
