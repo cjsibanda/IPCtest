@@ -162,7 +162,7 @@ int cmpDates(int dayIndex1, int dayIndex2, struct Date dates[]) {
 }
 
 
-//L 4 (no built-in functions)
+//L6 4 (no built-in functions)
 //Function to print the dates in "MonthName Day, Year" format
 void printDates(struct Date dates[], int size) {
     const char *months[12] = {
@@ -182,3 +182,48 @@ void printDates(struct Date dates[], int size) {
         i++;
     }
 }
+
+/*
+L7 2
+extract the day, month and year from dateString and
+store the information as integers into the DateTime struct pointed at by dt.
+*/
+
+struct DateTime {
+int day;
+int month;
+int year;
+int hour;
+int minute;
+};
+
+void setDate(const char dateString[], struct DateTime* dt){
+    if (dateString != NULL && dt != NULL) {
+        int d1 = dateString[0] - '0'; //Tens digit of day
+        int d2 = dateString[1] - '0'; //Units digit of day
+        int m1 = dateString[3] - '0'; //Units digit of month
+
+        int y1 = dateString[6] - '0';
+        int y2 = dateString[7] - '0';
+        int y3 = dateString[8] - '0';
+        int y4 = dateString[9] - '0';
+
+        //Combine digits into integers
+        int parsedDay = d1 * 10 + d2;
+        int parsedMonth = m1 * 10 + m2;
+        int parsedYear = y1 * 1000 + 100 + y3 * 10 + y4;
+
+        dt->day = parsedDay;
+        dt->month = parsedMonth;
+        dt->year = parsedYear;
+        dt->hour = 0;
+        dt-> minute = 0;
+    }
+}
+
+
+
+
+
+
+
