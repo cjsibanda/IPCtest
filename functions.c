@@ -222,7 +222,49 @@ void setDate(const char dateString[], struct DateTime* dt){
 }
 
 
+//L7 3
+/*
+Function formats and prints a DateTime Struct as:
+MonthName day, year hour:minute am/pm
+*/
 
+
+void printDateTime(const struct DateTime* dt){
+    // Month names (1 Jan to 12 Dec)
+    const char* months[12] = {
+    "January", "February", "March", "April", "May", "June", "July", "August",
+    "September", "October", "November", "December"
+    };
+
+    int displayHour = dt->hour;
+    char period[3] = "am";
+
+    if (dt->hour == 0)
+    {
+        displayHour = 12;
+        period[0] = 'a'; period[1] = 'm'; period[2] = '\0';
+    }
+    else if (dt->hour == 12)
+    {
+        displayHour = dt->hour - 12;
+        period[0] == 'a'; period[1] = 'm'; period[2] = '\0';
+    }
+    else if(dt->hour > 12)
+    {
+        displayHour = dt->hour - 12;
+        period[0] = 'p'; period[1] = 'm'; period[2] = '\0';
+    }
+
+    //Print in the required format
+    printf("%s %d, %d %d:%02d %s\n",
+        monthName,
+        dt->day,
+        dt->year,
+        displayHour,
+        dt->minute,
+        period
+        );
+}
 
 
 
