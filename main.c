@@ -69,6 +69,21 @@ int main() {
     }
 
 
+    //Test L7 1
+    int quarters, dimes, nickels;
+
+    makeChange(86, &quarters, &dimes, &nickels);
+    printf("86 cents -> Q: %d D: %d N: %d\n", quarters, dimes, nickels);
+    //Expected: Q: 3 D: 1 N: 0
+
+    makeChange(89, &quarters, &dimes, &nickels);
+    printf("89 cents -> Q: %d D: %d N: %d\n", quarters, dimes, nickels);
+    //Expected: Q: 3 D: 1 N: 1
+
+    makeChange(73, &quarters, &dimes, &nickels);
+    printf("73 cents -> Q: %d D: %d N: %d\n", quarters, dimes, nickels);
+    //Rounded up to 75 -> expected Q: 3 D: 0 N: 0
+
     //Test L6 4 printDate
     struct Date dates[3] = {
         {1, 1, 2024},
