@@ -183,6 +183,30 @@ void printDates(struct Date dates[], int size) {
     }
 }
 
+// L7 1
+void makeChange(int cents, int* quarters, int* dimes, int* nickels) {
+    int lastDigit = cents % 10;
+    int roundedCents = cents;
+
+    if (lastDigit == 1 || lastDigit == 2 || lastDigit == 6 || lastDigit == 7){
+        roundedCents -= lastDigit % 5; //rounded down
+    }
+    else if (lastDigit == 3 || lastDigit == 4 || lastDigit == 8 || lastDigit == 9){
+        roundedCents += 5 - (lastDigit % 5); //round up
+    }
+
+    //Calculate coins
+    *quarters = roundedCents / 25;
+    roundedCents = roundedCents % 25;
+
+    *dimes = roundedCents / 10;
+    roundedCents = roundedCents % 10;
+
+    *nickels = roundedCents / 5;
+
+    return;
+}
+
 /*
 L7 2
 extract the day, month and year from dateString and
