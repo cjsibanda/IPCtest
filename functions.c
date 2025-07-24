@@ -251,6 +251,7 @@ void setDate(const char dateString[], struct DateTime* dt){
 Function formats and prints a DateTime Struct as:
 MonthName day, year hour:minute am/pm
 */
+//Check this!
 
 
 void printDateTime(const struct DateTime* dt){
