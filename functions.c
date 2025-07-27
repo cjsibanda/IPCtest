@@ -188,14 +188,21 @@ void makeChange(int cents, int* quarters, int* dimes, int* nickels) {
     int lastDigit = cents % 10;
     int roundedCents = cents;
 
-    if (lastDigit == 1 || lastDigit == 2 || lastDigit == 6 || lastDigit == 7){
-        roundedCents -= lastDigit % 5; //rounded down
+    // Round to nearest 5 cents
+    if (lastDigit == 1 || lastDigit == 2) {
+        roundedCents -= lastDigit; // Round down
     }
-    else if (lastDigit == 3 || lastDigit == 4 || lastDigit == 8 || lastDigit == 9){
-        roundedCents += 5 - (lastDigit % 5); //round up
+    else if (lastDigit == 3 || lastDigit == 4) {
+        roundedCents += (5 - lastDigit); // Round up
+    }
+    else if (lastDigit == 6 || lastDigit == 7) {
+        roundedCents -= lastDigit; // Round down
+    }
+    else if (lastDigit == 8 || lastDigit == 9) {
+        roundedCents += (5 - lastDigit); // Round up
     }
 
-    //Calculate coins
+    // Calculate the number of coins
     *quarters = roundedCents / 25;
     roundedCents = roundedCents % 25;
 
@@ -204,8 +211,9 @@ void makeChange(int cents, int* quarters, int* dimes, int* nickels) {
 
     *nickels = roundedCents / 5;
 
-    return;
+    // End of function, return here
 }
+
 
 /*
 L7 2
@@ -221,29 +229,33 @@ int hour;
 int minute;
 };
 
-void setDate(const char dateString[], struct DateTime* dt){
+
+void setDate(const char dateString[], struct DateTime* dt) {
     if (dateString != NULL && dt != NULL) {
-        int d1 = dateString[0] - '0'; //Tens digit of day
-        int d2 = dateString[1] - '0'; //Units digit of day
-        int m1 = dateString[3] - '0'; //Units digit of month
+        int d1 = dateString[0] - '0'; // Tens digit of day
+        int d2 = dateString[1] - '0'; // Units digit of day
+        int m1 = dateString[3] - '0'; // Tens digit of month
+        int m2 = dateString[4] - '0'; // Units digit of month
 
-        int y1 = dateString[6] - '0';
-        int y2 = dateString[7] - '0';
-        int y3 = dateString[8] - '0';
-        int y4 = dateString[9] - '0';
+        int y1 = dateString[6] - '0'; // Thousands place of year
+        int y2 = dateString[7] - '0'; // Hundreds place of year
+        int y3 = dateString[8] - '0'; // Tens place of year
+        int y4 = dateString[9] - '0'; // Units place of year
 
-        //Combine digits into integers
+        // Combine digits into integers
         int parsedDay = d1 * 10 + d2;
         int parsedMonth = m1 * 10 + m2;
-        int parsedYear = y1 * 1000 + 100 + y3 * 10 + y4;
+        int parsedYear = y1 * 1000 + y2 * 100 + y3 * 10 + y4;
 
+        // Set the DateTime struct fields
         dt->day = parsedDay;
         dt->month = parsedMonth;
         dt->year = parsedYear;
-        dt->hour = 0;
-        dt-> minute = 0;
+        dt->hour = 0;  // Default to 0 hours
+        dt->minute = 0;  // Default to 0 minutes
     }
 }
+
 
 
 //L7 3
