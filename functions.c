@@ -266,43 +266,36 @@ MonthName day, year hour:minute am/pm
 //Check this!
 
 
-void printDateTime(const struct DateTime* dt){
+void printDateTime(const struct DateTime* dt) {
     // Month names (1 Jan to 12 Dec)
     const char* months[12] = {
-    "January", "February", "March", "April", "May", "June", "July", "August",
-    "September", "October", "November", "December"
+        "January", "February", "March", "April", "May", "June", "July", "August",
+        "September", "October", "November", "December"
     };
 
     int displayHour = dt->hour;
     char period[3] = "am";
 
-    if (dt->hour == 0)
-    {
-        displayHour = 12;
-        period[0] = 'a'; period[1] = 'm'; period[2] = '\0';
+    // Convert hour to 12-hour format and set AM/PM
+    if (dt->hour == 0) {
+        displayHour = 12; // Midnight (12 AM)
     }
-    else if (dt->hour == 12)
-    {
-        displayHour = dt->hour - 12;
-        period[0] == 'a'; period[1] = 'm'; period[2] = '\0';
+    else if (dt->hour == 12) {
+        displayHour = 12; // Noon (12 PM)
+        period[0] = 'p'; period[1] = 'm'; period[2] = '\0'; // Set PM
     }
-    else if(dt->hour > 12)
-    {
-        displayHour = dt->hour - 12;
-        period[0] = 'p'; period[1] = 'm'; period[2] = '\0';
+    else if (dt->hour > 12) {
+        displayHour = dt->hour - 12; // Convert to 12-hour format
+        period[0] = 'p'; period[1] = 'm'; period[2] = '\0'; // Set PM
     }
 
-    //Print in the required format
+    // Print in the required format
     printf("%s %d, %d %d:%02d %s\n",
-        monthName,
+        months[dt->month - 1],  // Month name (adjusted for 1-indexed month)
         dt->day,
         dt->year,
         displayHour,
         dt->minute,
         period
-        );
+    );
 }
-
-
-
-
