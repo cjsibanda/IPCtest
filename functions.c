@@ -299,3 +299,30 @@ void printDateTime(const struct DateTime* dt) {
         period
     );
 }
+
+//Lab 8 1
+int readNumericDataFile(const char* name, struct DateTime records[], int maxCapacity){
+    FILE* file = fopen(name, "r");
+    if (file == NULL) {
+        return 0; //file could not be opened
+    }
+
+    int count = 0;
+
+    while (count < maxCapacity &&
+        fscanf(file, "%d,%d,%d,%d,%d,
+          &records[count].day,
+          &records[count].month,
+          &records[count].year,
+          &records[count].hour,
+          &records[count].minute
+        ) == 5 ) {
+        count++;
+        }
+
+    fclose(file);
+    return count;
+    )
+)
+
+}
