@@ -326,3 +326,86 @@ int readNumericDataFile(const char* name, struct DateTime records[], int maxCapa
 )
 
 }
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+struct DateTime {
+    int day;
+    int month;
+    int year;
+    int hour;
+    int minute;
+    char period[3];  // "am" or "pm"
+};
+
+// Helper to parse date in dd/mm/yyyy format
+int parseDate(const char* dateStr, struct DateTime* dt) {
+    return sscanf(dateStr, "%d/%d/%d", &dt->day, &dt->month, &dt->year) == 3;
+}
+
+// Helper to parse time in h:m am/pm format
+int parseTime(const char* timeStr, struct DateTime* dt) {
+    int hour, minute;
+    char period[3];
+
+    int success = 0;
+
+    if (sscanf(timeStr, "%d:%d %2s", &hour, &minute, period) == 3) {
+        if (strcasecmp(period, "am") == 0) {
+            if (hour == 12) hour = 0;
+            success = 1;
+        } else if (strcasecmp(period, "pm") == 0) {
+            if (hour != 12) hour += 12;
+            success = 1;
+        }
+
+        if (success) {
+            dt->hour = hour;
+            dt->minute = minute;
+            strcpy(dt->period, period);
+        }
+    }
+
+    return success;
+}
+
+// SESE version of readStringDataFile
+int readStringDataFile(const char* name, struct DateTime records[], int maxCapacity) {
+    FILE* file = NULL;
+    char line[100];
+    int recordCount = 0;
+    int done = 0;
+
+    file = fopen(name, "r");
+    if (file == NULL) {
+        done = 1;
+    }
+
+    while (!done && fgets(line, sizeof(line), file) != NULL) {
+        if (recordCount >= maxCapacity) {
+            break;
+        }
+
+        // Strip newline if present
+        line[strcspn(line, "\n")] = '\0';
+
+        char* dateStr = strtok(line, ";");
+        char* timeStr = strtok(NULL, ";");
+
+        if (dateStr != NULL && timeStr != NULL) {
+            struct DateTime dt;
+            if (parseDate(dateStr, &dt) && parseTime(timeStr, &dt)) {
+                records[recordCount++] = dt;
+            }
+        }
+    }
+
+    if (file != NULL) {
+        fclose(file);
+    }
+
+    return recordCount;
+}
