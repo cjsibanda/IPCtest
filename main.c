@@ -103,3 +103,20 @@ int main() {
     
     return 0;
 }
+
+//Test L8 2
+#include <stdio.h>
+
+int main() {
+    struct DateTime records[10];
+    int numRecords = readStringDataFile("dates.txt", records, 10);
+
+    printf("Number of records: %d\n", numRecords);
+    for (int i = 0; i < numRecords; i++) {
+        printf("Date: %02d/%02d/%04d, Time: %02d:%02d %s\n", 
+            records[i].day, records[i].month, records[i].year, 
+            records[i].hour, records[i].minute, records[i].period);
+    }
+
+    return 0;
+}
