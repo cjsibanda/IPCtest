@@ -104,7 +104,7 @@ int main() {
     return 0;
 }
 
-//Test L8 2
+//Test L8 -2
 #include <stdio.h>
 
 int main() {
